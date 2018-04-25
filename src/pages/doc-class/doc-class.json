@@ -1,0 +1,8 @@
+{
+  "backgroundTextStyle": "dark",
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTitleText": "手册",
+  "navigationBarTextStyle": "black",
+  "backgroundColor":"#f7f7f7",
+  "enablePullDownRefresh": true
+}

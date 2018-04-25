@@ -1,0 +1,144 @@
+<block wx:if="{{show_page}}">
+  <view class="">
+    <view class="book-detail-x">
+      <image src="{{doc.cover_url}}" class="book-cover-blur"></image>
+      <view class="info-top">
+        <view class="top-main">
+          <image class="info-pic" src="{{doc.cover_url}}"></image>
+          <view class="main-r">
+            <text class="info-title">{{doc.title}}</text>
+            <text class="info-username">作者：{{doc.user.nick_name}}</text>
+            <text class="info-class">类别：{{doc.doc_class.title}}</text>
+            <text class="info-from">来源：{{doc.source}}</text>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="desc-main">
+      <view class="border-b"></view>
+      <view class="top-info-desc">{{doc.desc}}</view>
+    </view>
+
+
+
+    <view class="doc-content-wrap">
+      <view class="content-label">
+        <text class="">目录</text>
+      </view>
+      <view class="content-wrap">
+        <view class="">
+          <view class="menu-list">
+            <view class="menu-item" wx:for="{{menu_data}}" wx:key="{{item}}">
+              <view hover-class="view-hover-class">
+                <text decode="true" class="menu-title border-b-s" data-id="{{item.id}}" bindtap="go_page">{{item.title}}</text>
+              </view>
+              <template is="menu_son" data="{{...item}}" />
+            </view>
+          </view>
+        </view>
+        <template name="menu_son">
+          <view class="item-son">
+             <view class="" wx:for="{{children}}" wx:key="{{item}}">
+               <view class="" hover-class="view-hover-class">
+              <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son_2" data="{{...item}}"/>
+          </view>
+          </view>
+        </template>
+        <template name="menu_son_2">
+          <view class="item-son-2">
+            <view class="" wx:for="{{children}}" wx:key="{{item}}">
+               <view class="" hover-class="view-hover-class">
+                  <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title-2">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son_3" data="{{...item}}"/>
+            </view>
+          </view>
+        </template>
+        <template name="menu_son_3">
+          <view class="item-son-3">
+            <view class="" wx:for="{{children}}" wx:key="{{item}}">
+            <view class="" hover-class="view-hover-class">
+              <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title-3">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son_4" data="{{...item}}"/>
+            </view>
+          </view>
+        </template>
+        <template name="menu_son_4">
+          <view class="item-son-4">
+            <view class=""  wx:for="{{children}}" wx:key="{{item}}">
+            <view class="" hover-class="view-hover-class">
+              <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title-4">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son_5" data="{{...item}}"/>
+            </view>
+          </view>
+        </template>
+        <template name="menu_son_5">
+          <view class="item-son-5">
+            <view class=""  wx:for="{{children}}" wx:key="{{item}}">
+            <view class="" hover-class="view-hover-class">
+              <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title-5">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son_6" data="{{...item}}"/>
+            </view>
+          </view>
+        </template>
+        <template name="menu_son_6">
+          <view class="item-son-6">
+            <view class="" wx:for="{{children}}" wx:key="{{item}}">
+            <view class="" hover-class="view-hover-class">
+              <text decode="true" data-id="{{item.id}}" bindtap="go_page" class="menu-title border-b-s son-title-6">{{item.menu_title}}</text>
+              </view>
+              <template is="menu_son" data="{{...item}}"/>
+            </view>
+          </view>
+        </template>
+      </view>
+    </view>
+
+
+
+
+
+    <view class="zan-main">
+<!--
+      <view class="zan-top">
+        <text class="text-16" style="color:#333333;">点赞</text>
+        <view class="icon-btn" data-type="doc" data-id="{{doc.id}}" catchtap="doc_like">
+          <text class="c-iconfont text-30 icon-aui-icon-laud"></text>
+          <text class="text-12">{{doc.like_count}}</text>
+        </view>
+      </view>
+      <view class="zan-body" wx:if="{{doc.likes.length>0}}">
+        <scroll-view class="zan-user-list-sv" scroll-x="true">
+          <view class="zan-user-list">
+            <view class="user-info" wx:for="{{doc.likes}}" wx:key="{{item}}">
+              <image class="user-avatar" src="{{item.avatar}}"></image>
+            </view>
+          </view>
+        </scroll-view>
+      </view>
+      <view class="text-12 zan-empty" wx:else>随手一赞，带你去浪</view>
+-->
+    </view>
+
+<!--
+    <navigator url="../wenda-post/wenda-post?source=doc&source_id={{doc.id}}" class="iconfont ask-btn" bindtap="goAsk">提问</navigator>
+-->
+  </view>
+  <view class="zan-main">
+<!--
+    <view class="zan-top">
+      <text class="text-16" style="color:#333333;">问答</text>
+      <view class="icon-btn">
+        <text class="text-12">{{data.total}}个问题</text>
+      </view>
+    </view>
+-->
+  </view>
+  <view class="no_more" wx:if="{{more}}">{{more_data}}</view>
+  <view class="no_more" wx:if="{{no_more}}">{{more_data}}</view>
+</block>

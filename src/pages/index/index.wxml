@@ -1,0 +1,72 @@
+<view class="">
+
+<!--
+  <view class="top-grid-menu">
+    <block wx:for="{{grid}}" wx:key="{{item}}">
+      <navigator class="grid-item" url="{{item.page}}" open-type="{{item.open_type}}">
+        <image class="grid-icon" src="{{item.cover_url}}"></image>
+        <text class="grid-title">{{item.title}}</text>
+      </navigator>
+    </block>
+  </view>
+
+  <view class="search-view" wx:if="{{false}}" bindtap="go_search">
+    <text class="search-text">搜索文档</text>
+    <icon class="search-icon" type="search" size="15" />
+  </view>
+-->
+
+  <!-- 分类列示手册 -->
+  <view class="class-doc" wx:for="{{doc_class_list}}" wx:key="{{item}}">
+    <navigator class="class-title" url="../doc-class-list/doc-class-list?class_id={{item.id}}">
+      <text>{{item.title}}</text>
+      <text class="c-iconfont icon-aui-icon-more"></text>
+    </navigator>
+    <view class="class-doc-list">
+      <block wx:for="{{item.doc}}" wx:key="{{item}}">
+        <view class="class-doc-list-item" data-id="{{item.id}}">
+          <view class="class-doc-list-img-box">
+            <navigator url="/pages/doc-info/doc-info?doc_id={{item.id}}">
+              <image mode="aspectFill" class="class-doc-list-img-box-img" src="{{item.h_cover_url}}"></image>
+
+              <text class="end-state" wx:if="{{false}}">已完成</text>
+              <view class="view-count">
+                <text class="view-count-text">{{item.view_count}}阅读</text>
+              </view>
+            </navigator>
+          </view>
+          <view class="class-doc-list-info-box">{{item.title}}</view>
+        </view>
+      </block>
+    </view>
+  </view>
+
+<!--
+  <view class="list">
+    <view class="item view-bg" wx:for="{{data.data}}" wx:key="{{item}}" bindtap="go_info" data-id="{{item.id}}">
+      <view class="item-main border-b" hover-class="view-hover-class">
+        <view class="item-l">
+          <image mode="aspectFill" class="list-image" src="{{item.cover_url}}"></image>
+        </view>
+        <view class="item-r">
+          <text class="list-title">{{item.title}}</text>
+          <text class="list-desc">{{item.desc}}</text>
+          <view class="list-info">
+            <text wx:if="{{item.view_count > 0}}">{{item.view_count}}阅读</text>
+            <text wx:else></text>
+            <text class="color-success" wx:if="{{item.is_end == 0}}">更新中</text>
+            <text class="color-danger" wx:if="{{item.is_end == 1}}">已完成</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="no_more" wx:if="{{more}}">{{more_data}}</view>
+    <view class="no_more" wx:if="{{no_more}}">{{more_data}}</view>
+    <view class="no_data" wx:if="{{no_data}}">
+      <image class="no_data_icon" src="../../assets/images/no_data.png"></image>
+      <view class="no_data_text">暂无推荐文档！</view>
+    </view>
+  </view>
+-->
+</view>
