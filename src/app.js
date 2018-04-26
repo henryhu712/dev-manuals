@@ -39,6 +39,11 @@ App({
       is_load: false
     })
   },
+
+  globalData: {
+    recentReadings: [] // 最近阅读，本地数据与服务器同步
+  },
+
   api: {
     get_list: HOST + "/api/list",
     get_v3_info: HOST + "/api/v3/info",
@@ -71,6 +76,7 @@ App({
     get_v3_user_index: HOST + "/api/v3/user-index",
     v3_user_follow: HOST + "/api/v3/user-follow",
     v3_user_like: HOST + "/api/v3/user-like",
+    v3_user_reading: HOST + "/api/v3/user-reading",
     v3_user_follow_cancel: HOST + "/api/v3/user-follow-cancel",
 
     login: HOST + "/api/v3/login",

@@ -59,8 +59,6 @@
     </view>
 
 
-
-
     <scroll-view scroll-y="true" class="page-menu {{read_type}}" wx:if="{{show_menu}}" scroll-into-view="menu-{{info.id}}">
       <view class="">
         <view class="menu-list">

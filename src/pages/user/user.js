@@ -13,6 +13,7 @@ Page({
     user: [],
     user_data: {
       scan_code_title: '扫一扫',
+      recent_pages: [],
       doc: [],
       doc_page: []
     },
@@ -37,7 +38,10 @@ Page({
   },
 
   onShow: function () {
+    var data = this.data.user_data;
+    data.recent_pages = app.globalData.recentReadings;
     this.setData({
+      user_data: data,
       is_login: app.user.ckLogin()
     });
   },
@@ -152,7 +156,8 @@ Page({
             is_login: true,
             user: res.data.data.user,
             user_data: res.data.data.user_data,
-          })
+          });
+          app.globalData.recentReadings = res.data.data.user_data.recent_pages;
         }
 
       }, fail: error => {

@@ -1,4 +1,6 @@
 // doc-page.js
+const app = getApp()
+
 Page({
 
   /**
@@ -16,6 +18,7 @@ Page({
     menu: [],
     list_menu: []
   },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -47,6 +50,7 @@ Page({
   },
 
   get_data() {
+    var that = this;
     wx.request({
       url: getApp().api.get_v2_page,
       data: {
@@ -78,6 +82,10 @@ Page({
           /*wx.pageScrollTo({
             scrollTop: 0
           })*/
+
+
+          // Henry: keep track
+          that.reading(res.data.data.id, res.data.data.title);
 
 
         } catch (error) {
@@ -281,13 +289,15 @@ Page({
     })
     this.get_data()
   },
+
   show_more() {
+
     wx.showActionSheet({
       itemList: ['收藏', '报错/举报', '文档主页'],
       success: (res) => {
         switch (res.tapIndex) {
           case 0:
-            this.collect()
+            this.collect();
             break;
           case 1:
             wx.navigateTo({
@@ -303,7 +313,9 @@ Page({
       }
     })
   },
+
   collect() {
+
     getApp().user.isLogin(token => {
       wx.showLoading({
         title: '正在收藏',
@@ -341,5 +353,33 @@ Page({
         }
       })
     })
+  },
+
+  reading(page_id, page_title) {
+
+    if (app.user.ckLogin()) {
+      wx.request({
+        url: app.api.v3_user_reading,
+        header: {
+          'Authorization': 'Bearer ' + app.user.ckLogin()
+        },
+        data: {
+          'page_id': page_id,
+          'title': page_title,
+          'type': 'put'
+        },
+        success: res => {
+          if (res.data.status_code == 200) {
+            app.globalData.recentReadings.unshift({'id':page_id,'title':page_title});
+          }
+        },
+        complete: () => {
+        }
+      });
+    }
+    else {
+      console.log('not login');
+    }
   }
+
 })

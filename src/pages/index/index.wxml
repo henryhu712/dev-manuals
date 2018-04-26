@@ -1,6 +1,6 @@
 <view class="">
 
-<!--
+<!-- 幻灯片
   <view class="top-grid-menu">
     <block wx:for="{{grid}}" wx:key="{{item}}">
       <navigator class="grid-item" url="{{item.page}}" open-type="{{item.open_type}}">
