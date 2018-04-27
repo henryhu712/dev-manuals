@@ -5,9 +5,16 @@
     <view class="page-content markdown-body content" style="font-size:{{font_size}}rpx;">
       <template is="entry" data="{{...article}}" />
     </view>
+    <view class="page-bottom">
+      <view class="prev" catchtap="up_page">
+        <text class="">上一页</text>
+      </view>
+      <view class="next" catchtap="next_page">
+        <text class="">下一页</text>
+      </view>
+    </view>
   </view>
   <view class="page-footer">
-
 
     <view class="set-font" wx:if="{{show_set_font}}">
       <view class="set-f-l">
@@ -22,18 +29,21 @@
     </view>
     <view class="footer-bar">
       <view class="menu-box">
-        <view class="go-btn" catchtap="up_page">
-          <text class="go-icon c-iconfont icon-aui-icon-left"></text>
+        <view class="bar-item" catchtap="gotoHome">
+          <text class=" c-iconfont icon-mulu"></text>
+          <text>首页</text>
         </view>
         <view class="bar-item" catchtap="show_menu">
           <text class=" c-iconfont icon-mulu"></text>
           <text>目录</text>
         </view>
-        <view class="go-btn" catchtap="next_page">
-          <text class="go-icon c-iconfont icon-aui-icon-right"></text>
+        <view class="bar-item" catchtap="collectIt">
+          <text class=" c-iconfont icon-mulu"></text>
+          <text>收藏</text>
         </view>
-
       </view>
+
+<!--
       <view class="bar-item" catchtap="set_font">
         <text class="c-iconfont icon-icon-yxj-font"></text>
         <text>设置</text>
@@ -56,6 +66,7 @@
         <text class="c-iconfont icon-mingpiandibudaohanggengduo"></text>
         <text>更多</text>
       </view>
+-->
     </view>
 
 

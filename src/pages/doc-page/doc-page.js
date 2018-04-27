@@ -232,7 +232,9 @@ Page({
     })
     this.get_data()
   },
+
   up_page() {
+
     let list_menu = this.data.list_menu
     let page_index = false
     list_menu.map((id, index) => {
@@ -260,6 +262,7 @@ Page({
     })
     this.get_data()
   },
+
   next_page() {
     let list_menu = this.data.list_menu
     let page_index = false
@@ -316,7 +319,7 @@ Page({
 
   collect() {
 
-    getApp().user.isLogin(token => {
+    app.user.isLogin(token => {
       wx.showLoading({
         title: '正在收藏',
       })
@@ -333,6 +336,7 @@ Page({
             if (res.data.data.attached.length > 0) {
               wx.showToast({
                 title: '收藏成功',
+                duration: 2000
               })
               try {
                 getApp().pages.get('pages/user/user').get_data();
@@ -342,6 +346,7 @@ Page({
             } else {
               wx.showToast({
                 title: '已收藏',
+                duration: 2000
               })
             }
           } else {
@@ -353,6 +358,16 @@ Page({
         }
       })
     })
+  },
+
+  gotoHome: function() {
+    wx.switchTab({
+      url: '/pages/index/index'
+    });
+  },
+
+  collectIt: function() {
+    this.collect();
   },
 
   reading(page_id, page_title) {
@@ -378,7 +393,7 @@ Page({
       });
     }
     else {
-      console.log('not login');
+      console.log('not login, do not keep track');
     }
   }
 

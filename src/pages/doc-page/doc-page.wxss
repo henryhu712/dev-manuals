@@ -19,7 +19,7 @@
 }
 .page-main {
   margin: 0;
-  padding: 0 0 100rpx 0;
+  padding: 0 0 200rpx 0;
   position: relative;
   z-index: 2;
 }
@@ -164,3 +164,30 @@ color: #ddd;
 .dark .select .menu-title{
   color: #000000;
 }
+
+.page-bottom {
+  position: relative;
+}
+.page-bottom .prev {
+  float: left;
+  margin-left: 40rpx;
+  border: 1px solid #009688;
+  border-radius: 3px;
+  background-color: #009688;
+  color: #FFF;
+  font-weight: 300;
+  padding: 10rpx 20rpx;
+  font-size: 11px;
+}
+.page-bottom .next {
+  float: right;
+  margin-right: 40rpx;
+  border: 1px solid #009688;
+  border-radius: 3px;
+  background-color: #009688;
+  color: #FFF;
+  font-weight: 300;
+  padding: 10rpx 20rpx;
+  font-size: 11px;
+}
+
