@@ -18,25 +18,25 @@ page{
 }
 
 .avatar {
-  width: 180rpx;
+  width: 100rpx;
+  float: left;
 }
 
 .avatar-img {
-  width: 180rpx;
-  height: 180rpx;
+  width: 100rpx;
+  height: 100rpx;
   border-radius: 50%;
 }
 
 .uerinfo {
-  display: flex;
-  flex-direction: column;
 }
 
 .nickname {
-  font-size: 40rpx;
-  font-weight: bold;
-  margin-bottom: 30rpx;
+  font-size: 30rpx;
+  font-weight: 400;
   font-family: microsoft yahei;
+  float: left;
+  margin: 25rpx 0 0 40rpx;
 }
 
 .no-login{

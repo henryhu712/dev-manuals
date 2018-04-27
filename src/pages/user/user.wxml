@@ -1,8 +1,10 @@
 <block wx:if="{{page_show}}">
   <view class="user-head" wx:if="{{is_login}}">
     <view class="uerinfo">
+      <view class="avatar">
+        <image src="{{user.avatar_url}}" class="avatar-img"></image>
+      </view>
       <text class="nickname">{{user.nick_name}}</text>
-      <!-- <text>2017加入</text> -->
       <view class="userdata">
 <!--
         <view class="dataone">
@@ -14,14 +16,7 @@
           <text>粉丝</text>
         </view>
 -->
-        <!-- <view class="edit">
-        <text>编辑个人资料</text>
-      </view> -->
       </view>
-
-    </view>
-    <view class="avatar">
-      <image src="{{user.avatar_url}}" class="avatar-img"></image>
     </view>
   </view>
   <view class="no-login" wx:else>
