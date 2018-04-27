@@ -139,7 +139,7 @@ Page({
   },
   onShareAppMessage: function () {
     return {
-      title: "云档-免费在线文档"
+      title: "开发常用手册"
     }
   },
   doc_like(event) {
