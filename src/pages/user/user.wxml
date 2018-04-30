@@ -64,14 +64,14 @@
 
   <block wx:if="{{show_tab==1}}">
     <view class="empty" wx:if="{{user_data.recent_pages.length <= 0}}">
-      <view class="text-12"><text wx:if="{{is_login}}">没阅读过任何文档</text><text wx:else>登录后查看我的文档</text></view>
+      <view class="text-12"><text wx:if="{{is_login}}">还没阅读过任何文档</text><text wx:else>登录后查看我的最近阅读</text></view>
     </view>
     <view class="" wx:else>
       <block wx:for="{{user_data.recent_pages}}" wx:key="{{item}}">
         <view class="item-doc" wx:if="{{item.title}}">
-          <navigator url="../doc-page/doc-page?page_id={{item.id}}" hover-class="none" class="item-doc-info">
+          <view data-id="{{item.id}}" class="link-to" catchtap="navigateToPage">
             <text class="doc-title">{{item.title}}</text>
-          </navigator>
+          </view>
         </view>
         <view class="border-b"></view>
       </block>

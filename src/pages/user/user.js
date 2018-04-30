@@ -261,6 +261,14 @@ Page({
       show_tab: event.currentTarget.dataset.type
     })
   },
+
+  navigateToPage: function(ev) {
+    let id = ev.currentTarget.dataset.id;
+    wx.navigateTo({
+      url: '../doc-page/doc-page?page_id=' + id
+    });
+  },
+
   un_collect(event) {
     let id = event.currentTarget.dataset.id
     app.user.isLogin(token => {
