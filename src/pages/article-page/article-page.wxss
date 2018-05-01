@@ -41,3 +41,7 @@ page {
   color: #2f2f2f;
   line-height: 1.4;
 }
+
+.page-cover image {
+  height: 200px;
+}

@@ -1,12 +1,7 @@
 // article.js
 Page({
 
-  /**
-   * 页面的初始数据
-   */
   data: {
-    tag_id:0,
-    tag_name:'',
     swiper: [],
     indicatorDots: true,
     autoplay: true,
@@ -22,26 +17,13 @@ Page({
     ls_load: false
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (option) {
-    let tag_id = option.tag_id
-    let tag_name = option.tag_name
-    this.setData({
-      tag_id: tag_id,
-      tag_name: tag_name
-    })
-    if(tag_id>0){
-      wx.setNavigationBarTitle({
-        title: tag_name,
-      })
-    }
     wx.showLoading({
       title: '加载中',
     })
     this.get_data()
   },
+
   get_data() {
     this.setData({
       is_load: true
@@ -53,6 +35,13 @@ Page({
         page: this.data.page
       },
       success: (res) => {
+        //console.log('artile');
+        //console.log(res.data);
+        this.setData({
+          data: res.data,
+        });
+
+        /*
         if (res.data.current_page == 1) {
           this.setData({
             data: res.data,
@@ -69,10 +58,11 @@ Page({
         
           })
         }
+        */
 
-        getApp().set_page_more(this, res)
+        //getApp().set_page_more(this, res)
 
-        wx.stopPullDownRefresh()
+        //wx.stopPullDownRefresh()
       }, complete: () => {
         wx.hideLoading()
       }
@@ -85,6 +75,11 @@ Page({
       no_more: false
     })
     this.get_data()
+  },
+
+  onShow: function() {
+    //console.log('show');
+    //console.log(this.data.data);
   },
 
   onReachBottom: function () {

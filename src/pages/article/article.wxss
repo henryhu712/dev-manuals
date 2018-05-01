@@ -53,14 +53,12 @@ swiper {
 }
 
 .item-right {
-  width: 200rpx;
-  margin-left: 20rpx;
-
+  width: 60%;
 }
 
 .item-cover {
   width: 200rpx;
-  height: 200rpx;
+  height: 150rpx;
 }
 
 .item-tag {

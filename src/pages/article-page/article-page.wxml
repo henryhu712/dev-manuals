@@ -4,6 +4,9 @@
     <view class="page-header">
       <view class="page-title">{{title}}</view>
     </view>
+    <view class="page-cover">
+      <image mode="aspectFill" src="{{page_cover_url}}" class="" />
+    </view>
     <view class="page-content markdown-body content">
       <template is="entry" data="{{...article}}" />
     </view>

@@ -1,6 +1,7 @@
 {
     "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "文章",
     "backgroundColor": "#f7f7f7",
     "backgroundTextStyle": "dark",
     "enablePullDownRefresh": true

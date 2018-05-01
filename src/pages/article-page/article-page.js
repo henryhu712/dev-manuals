@@ -1,6 +1,7 @@
 Page({
   data: {
     id: 0,
+    page_cover_url: '',
     title: '',
     article: {},
     read_type: 'light',
@@ -16,7 +17,10 @@ Page({
     })
     this.get_data()
   },
+
   get_data() {
+
+    var that = this;
     wx.request({
       url: getApp().api.get_v3_article_page,
       data: {
@@ -26,18 +30,20 @@ Page({
         'content-type': 'application/json'
       },
       success: (res) => {
+        //console.log('page');
+        //console.log(res.data);
         try {
           let data = getApp().towxml.toJson(res.data.data.content, 'markdown');
           data.theme = this.data.read_type;
           this.set_nav_type(this.data.read_type)
           this.setData({
             article: data,
+            page_cover_url: res.data.data.cover_url,
             title: res.data.data.title
           });
           wx.setNavigationBarTitle({
             title: res.data.data.title,
           })
-          this.s
           wx.hideLoading()
         } catch (error) {
           console.log(error)
