@@ -18,13 +18,23 @@ Page({
   },
 
   onLoad: function (option) {
-    wx.showLoading({
-      title: '加载中',
-    })
-    this.get_data()
+    let that = this;
+    wx.getStorage({
+      key: 'article_list',
+      success: function(res) {
+        that.setData({
+          data: res.data
+        });
+      },
+      fail: function(res) {
+        that.get_data();
+      }
+    });
   },
 
   get_data() {
+
+    let that = this;
     this.setData({
       is_load: true
     })
@@ -35,10 +45,18 @@ Page({
         page: this.data.page
       },
       success: (res) => {
-        //console.log('artile');
-        //console.log(res.data);
-        this.setData({
-          data: res.data,
+        that.setData({
+          data: res.data
+        });
+
+        var timestamp = Date.parse(new Date());
+        wx.setStorage({
+          key: 'article_list',
+          data: res.data
+        });
+        wx.setStorage({
+          key: 'article_list_updated',
+          data: timestamp
         });
 
         /*
@@ -68,6 +86,7 @@ Page({
       }
     })
   },
+
   onPullDownRefresh: function () {
     this.setData({
       page: 1,
@@ -78,8 +97,21 @@ Page({
   },
 
   onShow: function() {
-    //console.log('show');
-    //console.log(this.data.data);
+
+    let that = this;
+    // Check local cache for article list.
+    wx.getStorage({
+      key: 'article_list_updated',
+      success: function(res) {
+        var timestamp = Date.parse(new Date());
+        if (timestamp - res.data > 2*60*60*1000) {
+          that.get_data(); // Update
+        }
+      },
+      fail: function(res) {
+        that.get_data();
+      }
+    });
   },
 
   onReachBottom: function () {
