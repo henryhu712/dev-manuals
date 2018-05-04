@@ -93,7 +93,8 @@ Page({
       more: false,
       no_more: false
     })
-    this.get_data()
+    this.get_data();
+    wx.stopPullDownRefresh();
   },
 
   onShow: function() {
@@ -129,10 +130,15 @@ Page({
       url: '../article-page/article-page?id=' + id
     })
   },
+
   /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function () {
-
+    return {
+      title: '文摘',
+      desc: '文摘',
+      path: '/pages/article/article'
+    }
   }
 })

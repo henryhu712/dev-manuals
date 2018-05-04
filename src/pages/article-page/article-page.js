@@ -107,11 +107,13 @@ Page({
       })
     }
   },
+
   onShareAppMessage: function () {
     return {
-      title: this.data.title
+      title: '文摘'
     }
   },
+
   previewImage: function (event) {
     let src = event.currentTarget.dataset.src;
     wx.previewImage({

@@ -32,8 +32,8 @@
         "selectedIconPath": "/assets/images/homepage_fill.png"
       },
       {
-        "pagePath": "pages/doc-class/doc-class",
-        "text": "手册",
+        "pagePath": "pages/article/article",
+        "text": "文摘",
         "iconPath": "/assets/images/manage.png",
         "selectedIconPath": "/assets/images/manage_fill.png"
       },
