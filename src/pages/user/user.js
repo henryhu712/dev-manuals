@@ -256,9 +256,11 @@ Page({
       edit_show: !this.data.edit_show
     })
   },
-  set_tab(event) {
+
+  set_tab(ev) {
+
     this.setData({
-      show_tab: event.currentTarget.dataset.type
+      show_tab: ev.currentTarget.dataset.type
     })
   },
 

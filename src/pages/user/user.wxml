@@ -54,11 +54,14 @@
 -->
 
   <view class="user-tab">
-    <view class="tab-item {{show_tab==1?'active':''}}" catchtap="set_tab" data-type="1">
+    <view class="tab-item {{show_tab == 1 ? 'active' : ''}}" catchtap="set_tab" data-type="1">
       <text>最近阅读</text>
     </view>
-    <view class="tab-item {{show_tab==0?'active':''}}" catchtap="set_tab" data-type="0">
-      <text>收藏</text>
+    <view class="tab-item {{show_tab == 0 ? 'active' : ''}}" catchtap="set_tab" data-type="0">
+      <text>我的收藏</text>
+    </view>
+    <view class="tab-item {{show_tab == 2 ? 'active' : ''}}" catchtap="set_tab" data-type="2">
+      <text>我要反馈</text>
     </view>
   </view>
 
